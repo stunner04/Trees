@@ -17,6 +17,19 @@ public:
     }
 };
 
+void inOrderTraversal(Node *root, vector<int> &ans)
+{
+    if (root == nullptr)
+    {
+        return;
+    }
+
+    inOrderTraversal(root->left, ans); // LEFT
+    ans.push_back(root->data);
+    // cout << root->data <<" "; // ROOT
+    inOrderTraversal(root->right, ans); // RIGHT
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
