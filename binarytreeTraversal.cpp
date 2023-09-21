@@ -12,6 +12,7 @@ struct TreeNode
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+
 class Node
 {
     int data;
@@ -66,10 +67,10 @@ vector<vector<int>> levelOrder(TreeNode *root)
     vector<vector<int>> ans;
     if (root == nullptr)
         return ans;
-    queue<TreeNode *> q;
+    queue<TreeNode *> q; // to store the nodes and for level wise traversing
     q.push(root);
 
-    while (!q.empty())
+    while (!q.empty()) 
     {
         int s = q.size();
         vector<int> level;
