@@ -7,7 +7,7 @@ class TreeNode
 {
 public:
     int data;
-    Node *left, right;
+    TreeNode *left, *right;
 
     TreeNode(int root)
     {
@@ -16,11 +16,31 @@ public:
     }
 };
 
+TreeNode *buildBinaryTree(TreeNode *root)
+{
+    int data;
+    cin >> data;
+
+    root = new TreeNode(data);
+
+    if (data == -1)
+    {
+        return nullptr;
+    }
+
+    cout << "Left child of " << data << "\n";
+    root->left = buildBinaryTree(root->left);
+
+    cout << "Right child of " << data << "\n";
+    root->right = buildBinaryTree(root->right);
+    return root;
+}
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+
+    TreeNode *root = nullptr;
+    root = buildBinaryTree(root);
 
     return 0;
 }
